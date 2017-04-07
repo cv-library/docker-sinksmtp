@@ -1,10 +1,13 @@
 node('jenkins-build') {
-    stage 'Checkout'
-    checkout scm
+    stage('Checkout') {
+        checkout scm
+    }
 
-    stage 'Build'
-    sh './build'
+    stage('Build') {
+        sh './build'
+    }
 
-    stage 'Upload'
-    sh 'docker push quay.io/cvlibrary/sinksmtp'
+    stage('Upload') {
+        sh 'docker push quay.io/cvlibrary/sinksmtp'
+    }
 }
